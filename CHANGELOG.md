@@ -1,5 +1,19 @@
 # Changelog
 
+## \[0.20.0]
+
+- [`ec834f6`](https://www.github.com/tauri-apps/muda/commit/ec834f6fbf114efebda2bd5716756b0f07a3f463) ([#385](https://www.github.com/tauri-apps/muda/pull/385)) **Breaking change** `Accelerator::new` and `KeyAccelerator::new` now take `Modifiers` directly instead of `Option<Modifiers>`, use `Modifiers::empty()` instead.
+- [`97c82c3`](https://www.github.com/tauri-apps/muda/commit/97c82c37cc56cecc8fdf39b37b728ff86caad57f) ([#381](https://www.github.com/tauri-apps/muda/pull/381)) Render unsupported predefined menu items as disabled menu items.
+- [`a1550bd`](https://www.github.com/tauri-apps/muda/commit/a1550bd9698208b6698cd8fb27c5169808ed892f) ([#361](https://www.github.com/tauri-apps/muda/pull/361)) Fix a use-after-free on macOS when a menu item outlives its associated Rust menu item.
+- [`360153e`](https://www.github.com/tauri-apps/muda/commit/360153ea78891c43d7165e37c79baf9084966795) On Windows, fix `CheckMenuItem::is_checked` returning the item's `enabled` state instead of its checked state when the item isn't attached to a menu yet.
+- [`88e0025`](https://www.github.com/tauri-apps/muda/commit/88e0025a9ba0c860d46d62cc9966be4855cc44dc) ([#272](https://www.github.com/tauri-apps/muda/pull/272)) Add gtk4 support behind `gtk4` feature flag
+- [`ec834f6`](https://www.github.com/tauri-apps/muda/commit/ec834f6fbf114efebda2bd5716756b0f07a3f463) ([#385](https://www.github.com/tauri-apps/muda/pull/385)) Enhance accelerator suppport across all platforms to support more keys.
+- [`2d3d039`](https://www.github.com/tauri-apps/muda/commit/2d3d039d456ad90cd9357e1ce305a26f34322ad3) ([#386](https://www.github.com/tauri-apps/muda/pull/386)) Add predefined menu items for Paste and Match Style, Delete, Actual Size, Zoom In, Zoom Out, Start Speaking, Stop Speaking, Start Dictation, and Emoji & Symbols on macOS. Also add `PredefinedMenuItem::zoom` as an alias for `PredefinedMenuItem::maximize`.
+- [`88e0025`](https://www.github.com/tauri-apps/muda/commit/88e0025a9ba0c860d46d62cc9966be4855cc44dc) ([#272](https://www.github.com/tauri-apps/muda/pull/272)) **Breaking change** Updated the minimum supported Rust version from 1.73 to 1.90 on macOS and Windows, 1.92 on Linux.
+- [`5ed4136`](https://www.github.com/tauri-apps/muda/commit/5ed4136943fb92b73bf280915853d79f7c1f21af) ([#382](https://www.github.com/tauri-apps/muda/pull/382)) Add native icon support on exsiting `NativeIcon` variants on GTK and Windows where possible. Also added `NativeIcon::Raw`, `NativeIcon::from_name` on macOS/Linux/BSD, or `NativeIcon::from_id` on Windows for using raw platform specific values if needed.
+- [`ec834f6`](https://www.github.com/tauri-apps/muda/commit/ec834f6fbf114efebda2bd5716756b0f07a3f463) ([#385](https://www.github.com/tauri-apps/muda/pull/385)) Preserve physical `Accelerator` shortcuts internally separate from logical `KeyAccelerator` shortcuts so menu shortcuts can target either physical key codes or layout-spec ific characters.
+- [`88e0025`](https://www.github.com/tauri-apps/muda/commit/88e0025a9ba0c860d46d62cc9966be4855cc44dc) ([#272](https://www.github.com/tauri-apps/muda/pull/272)) **Breaking change** `Menu::remove` and `Submenu::remove` now remove all occurrences of the provided item. Use `remove_at` to remove a single item occurrence by position.
+
 ## \[0.19.3]
 
 - [`73106f5`](https://www.github.com/tauri-apps/muda/commit/73106f5c548a08bfeea35a1627ea533726f5ba2e) ([#363](https://www.github.com/tauri-apps/muda/pull/363) by [@Legend-Master](https://www.github.com/tauri-apps/muda/../../Legend-Master)) On Windows, fixed a `dangling` pointer crash when `Menu::remove_for_hwnd` is called before dropping that `Menu` and then attached a new `Menu`
